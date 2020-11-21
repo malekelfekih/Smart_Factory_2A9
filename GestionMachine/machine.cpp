@@ -2,7 +2,7 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
-//test tutoriel git
+//Gestion de l'entite machine
 
 Machine::Machine()
 {

@@ -3,8 +3,7 @@
 #include <QtDebug>
 #include <QObject>
 #include <QDate>
-
-//test tutoriel git
+//Gestion de l'entite fiche de suivi
 
 Fichesuivi::Fichesuivi()
 {
