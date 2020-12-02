@@ -1,6 +1,9 @@
 #ifndef FICHEWINDOW_H
 #define FICHEWINDOW_H
 #include <QDialog>
+#include <QMainWindow>
+#include<QPrinter>
+#include<QPrintDialog>
 #include "fichesuivi.h"
 
 namespace Ui {
@@ -21,6 +24,8 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButtonmodifier_clicked();
+
+    void on_pushButtonimprimer_clicked();
 
 private:
     Ui::fichewindow *ui;

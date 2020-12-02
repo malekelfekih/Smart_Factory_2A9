@@ -18,8 +18,8 @@
     <rect>
      <x>10</x>
      <y>0</y>
-     <width>741</width>
-     <height>531</height>
+     <width>751</width>
+     <height>511</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -31,10 +31,10 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>10</y>
-      <width>691</width>
-      <height>151</height>
+      <width>701</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -54,7 +54,7 @@ background: #d7d4ff;
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>40</y>
        <width>91</width>
        <height>16</height>
@@ -80,7 +80,7 @@ background: #d7d4ff;
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>220</x>
        <y>80</y>
        <width>151</width>
        <height>16</height>
@@ -93,7 +93,7 @@ background: #d7d4ff;
     <widget class="QLineEdit" name="LEnum">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>80</x>
        <y>40</y>
        <width>113</width>
        <height>20</height>
@@ -111,7 +111,7 @@ background: white;
     <widget class="QDateEdit" name="LEdate">
      <property name="geometry">
       <rect>
-       <x>420</x>
+       <x>310</x>
        <y>80</y>
        <width>110</width>
        <height>22</height>
@@ -126,13 +126,13 @@ background: white;
 }</string>
      </property>
      <property name="displayFormat">
-      <string>dd/MM/yy</string>
+      <string>dd/MM/yyyy</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>220</x>
        <y>40</y>
        <width>47</width>
        <height>13</height>
@@ -145,7 +145,7 @@ background: white;
     <widget class="QLineEdit" name="LEetat">
      <property name="geometry">
       <rect>
-       <x>420</x>
+       <x>310</x>
        <y>40</y>
        <width>113</width>
        <height>20</height>
@@ -163,8 +163,8 @@ background: white;
     <widget class="QPushButton" name="pushButtonajouter1">
      <property name="geometry">
       <rect>
-       <x>570</x>
-       <y>100</y>
+       <x>540</x>
+       <y>80</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -188,7 +188,7 @@ color :white;
     <widget class="QLineEdit" name="LEage">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>80</x>
        <y>80</y>
        <width>113</width>
        <height>20</height>
@@ -203,210 +203,24 @@ background: white;
 }</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>170</y>
-      <width>711</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QGroupBox {
-padding: 5px;
-border-radius: 5px;
-font-weight: bold;
-border: 3px solid gray;
-border-radius: 40px;
-background: #d7d4ff;
-}
-</string>
-    </property>
-    <property name="title">
-     <string>Affichage:</string>
-    </property>
-    <widget class="QTableView" name="tab_Fiche">
+    <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>571</width>
-       <height>101</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
-       <y>90</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-padding: 5px;
-border-radius: 5px;
-background-color:#e7fff5;
-font-weight: bold;
-}
-QPushButton:hover
-{
-color :white;
-}</string>
-     </property>
-     <property name="text">
-      <string>Imprimer</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>711</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QGroupBox {
-padding: 5px;
-border-radius: 5px;
-font-weight: bold;
-border: 3px solid gray;
-border-radius: 40px;
-background: #d7d4ff;
-}
-</string>
-    </property>
-    <property name="title">
-     <string>Modification:</string>
-    </property>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>91</width>
+       <x>450</x>
+       <y>40</y>
+       <width>101</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>age:</string>
+      <string>Num_serie_machine :</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>30</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Etat :</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LEetat1">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>30</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit {
-	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid #878b94;
-border-radius: 40pxt;
-background: white;
-}</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>60</y>
-       <width>151</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>date_derniere_maintenance :</string>
-     </property>
-    </widget>
-    <widget class="QDateEdit" name="LEdate1">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>60</y>
-       <width>110</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QDateEdit {
-	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid #878b94;
-border-radius: 40pxt;
-background: white;
-}</string>
-     </property>
-     <property name="displayFormat">
-      <string>dd/MM/yy</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButtonmodifier">
+    <widget class="QLineEdit" name="LEnumamchine">
      <property name="geometry">
       <rect>
        <x>560</x>
        <y>40</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
-padding: 5px;
-border-radius: 5px;
-background-color:#e7fff5;
-font-weight: bold;
-}
-QPushButton:hover
-{
-color :white;
-}</string>
-     </property>
-     <property name="text">
-      <string>Modifier</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>num_modele:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LEnum1">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>30</y>
        <width>113</width>
        <height>20</height>
       </rect>
@@ -420,135 +234,6 @@ background: white;
 }</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="LEage1">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>60</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLineEdit {
-	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid #878b94;
-border-radius: 40pxt;
-background: white;
-}</string>
-     </property>
-    </widget>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_4">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>430</y>
-     <width>711</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QGroupBox {
-padding: 5px;
-border-radius: 5px;
-font-weight: bold;
-border: 3px solid gray;
-border-radius: 40px;
-background: #d7d4ff;
-}
-</string>
-   </property>
-   <property name="title">
-    <string>Suppression:</string>
-   </property>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>91</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>num_modele:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>30</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Etat :</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="LEetat2">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>30</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit {
-	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid #878b94;
-border-radius: 40pxt;
-background: white;
-}</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="LEnum2">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>30</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit {
-	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid #878b94;
-border-radius: 40pxt;
-background: white;
-}</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>22</y>
-      <width>81</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-padding: 5px;
-border-radius: 5px;
-background-color:#e7fff5;
-font-weight: bold;
-}
-QPushButton:hover
-{
-color :white;
-}</string>
-    </property>
-    <property name="text">
-     <string>Supprimer</string>
-    </property>
    </widget>
   </widget>
  </widget>

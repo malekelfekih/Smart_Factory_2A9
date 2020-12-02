@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "machine.h"
+#include "fichesuivi.h"
+#include "statistiques.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -21,9 +23,27 @@ private slots:
 
     void on_pushButtonajouter_clicked();
     void on_pushButtonsupprimer_clicked();
+    void on_pushButtonrecherche_clicked();
+
+    void on_pushButtonajouter1_clicked();
+
+    void on_pushButtonimprimer_clicked();
+
+    void on_pushButtonmodifier_clicked();
+
+    void on_pushButtonsupprimer2_clicked();
+
+
+    void on_pushButton_clicked();
+
+    void on_pushButtonrecherche1_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
     Machine M;
+    Fichesuivi F;
+    Statistiques *s;
 };
 #endif // MAINWINDOW_H

@@ -3,24 +3,36 @@
 #include <QString>
 #include <QSqlQueryModel>
 
+
 class Fichesuivi
 {
 public:
 
     Fichesuivi();
-     Fichesuivi(int,int,QString,QString);
+     Fichesuivi(int,int,QString,QString,QString,QString);
     int getnum_modele();
     int getage();
     QString getetat();
     QString getdate_derniere_m();
+    QString getnum_serie_machine();
+    QString getdescription();
     void setnum_modele(int);
     void setage(int);
     void setetat(QString);
     void setdate_derniere_m(QString);
+    void setnum_serie_machine(QString);
+    void setdescription(QString);
     bool ajouter();
+    bool verifvideint1(int);
+    bool verifvidestring1(QString);
+    bool verifiernum_modele(int);
+    bool verifiernum_modele1(int);
     QSqlQueryModel* afficher();
-    bool supprimer(int,QString);
+    QSqlQueryModel* afficher1();
+    QSqlQueryModel* chercher1(int,QString);
+    bool supprimer(QString);
     bool modifier();
+
 
 
 private:
@@ -29,6 +41,9 @@ private:
     int age;
     QString etat;
     QString date_derniere_m;
+    QString num_serie_machine;
+    QString description;
+
 
 
 
