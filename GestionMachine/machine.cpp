@@ -195,7 +195,7 @@ QSqlQueryModel *Machine::consulternb()
     QSqlQueryModel* model=new QSqlQueryModel();
 
 
-     model->setQuery("SELECT nb_heure,num_serie FROM machine");
+     model->setQuery("SELECT num_serie,nb_heure FROM machine");
      model->setHeaderData(0, Qt::Horizontal, QObject::tr("num_serie"));
      model->setHeaderData(1, Qt::Horizontal, QObject::tr("nb_heure"));
      return  model;
