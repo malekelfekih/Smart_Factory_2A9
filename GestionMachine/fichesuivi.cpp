@@ -12,17 +12,15 @@ Fichesuivi::Fichesuivi()
     age=0;
     etat="";
     date_derniere_m="";
-    num_serie_machine="";
     description="";
 }
 
-Fichesuivi::Fichesuivi(int num_modele,int age,QString etat,QString date_derniere_m,QString num_serie_machine,QString description)
+Fichesuivi::Fichesuivi(int num_modele,int age,QString etat,QString date_derniere_m,QString description)
 {
     this->num_modele=num_modele;
     this->age=age;
     this->etat=etat;
     this->date_derniere_m=date_derniere_m;
-    this->num_serie_machine=num_serie_machine;
     this->description=description;
 }
 
@@ -39,8 +37,6 @@ QString Fichesuivi:: getetat()
 QString Fichesuivi:: getdate_derniere_m()
 {return date_derniere_m;}
 
-QString Fichesuivi::getnum_serie_machine()
-{return num_serie_machine;}
 
 QString Fichesuivi::getdescription()
 {return description;}
@@ -57,8 +53,6 @@ void Fichesuivi:: setetat(QString etat)
 void Fichesuivi:: setdate_derniere_m(QString date_derniere_m)
 {this->date_derniere_m=date_derniere_m;}
 
-void Fichesuivi:: setnum_serie_machine(QString num_serie_machine)
-{this->num_serie_machine=num_serie_machine;}
 
 void Fichesuivi:: setdescription(QString description)
 {this->description=description; }
@@ -74,13 +68,12 @@ bool Fichesuivi::ajouter()
 
 
 
-    query.prepare("INSERT INTO Fiche(num_modele,age,etat,date_m,num_serie_machine,description) "
-                  "VALUES(:num_modele,:age,:etat,:date_m,:num_serie_machine,:description)");
+    query.prepare("INSERT INTO Fiche(num_modele,age,etat,date_m,description) "
+                  "VALUES(:num_modele,:age,:etat,:date_m,:description)");
          query.bindValue(":num_modele",num_modele_string);
          query.bindValue(":age",age_string);
          query.bindValue(":etat", etat);
          query.bindValue(":date_m", date_derniere_m);
-         query.bindValue(":num_serie_machine",num_serie_machine);
          query.bindValue(":description", description);
         return query.exec();
 
@@ -143,8 +136,7 @@ QSqlQueryModel* Fichesuivi ::afficher()
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("age"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("etat"));
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("date_derniere_m"));
-   model->setHeaderData(4, Qt::Horizontal, QObject::tr("num_serie_machine"));
-   model->setHeaderData(5, Qt::Horizontal, QObject::tr("description"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("description"));
 
 
   return  model;
@@ -153,7 +145,7 @@ QSqlQueryModel* Fichesuivi ::afficher()
 QSqlQueryModel* Fichesuivi ::afficher1()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-    model->setQuery("SELECT num_serie FROM MACHINE");
+    model->setQuery("SELECT num_modele FROM FICHE");
     return model;
 }
 
@@ -178,12 +170,7 @@ QSqlQueryModel *Fichesuivi::chercher1(int test,QString text)
                 query.exec();
                 model->setQuery(query);
         }
-        if(test==3)
-           {
-            query.prepare("SELECT * FROM FICHE where NUM_SERIE_MACHINE like '"+text+"'");
-                query.exec();
-                model->setQuery(query);
-        }
+
 
          return model;
 
@@ -209,12 +196,12 @@ bool Fichesuivi:: modifier()
 
 
 
-bool Fichesuivi:: supprimer(QString num_serie_machine)
+bool Fichesuivi:: supprimer(int num_modele)
 {
     QSqlQuery query;
-          query.prepare(" Delete from fiche where num_serie_machine=:num_serie_machine ");
+          query.prepare(" Delete from fiche where num_modele=:num_modele ");
 
-          query.bindValue(0, num_serie_machine);
+          query.bindValue(0, num_modele);
 
         return query.exec();
 

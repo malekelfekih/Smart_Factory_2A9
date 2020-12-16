@@ -5,6 +5,7 @@
 #include "machine.h"
 #include "fichesuivi.h"
 #include "statistiques.h"
+#include "machinefiche.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -40,10 +41,15 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButtonajoutermf_clicked();
+
+    void on_pushButtonrecherche1_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Machine M;
     Fichesuivi F;
     Statistiques *s;
+    Machinefiche MF;
 };
 #endif // MAINWINDOW_H

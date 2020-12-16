@@ -2,7 +2,8 @@
 #include "ui_mainwindow.h"
 #include "machine.h"
 #include "fichesuivi.h"
-#include"statistiques.h"
+#include "statistiques.h"
+#include "machinefiche.h"
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QMessageBox>
@@ -36,7 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
      ui->tab_Fiche->setModel(F.afficher());
      ui->comboBoxchercher1->addItem("num_modele");
      ui->comboBoxchercher1->addItem("age");
-     ui->comboBoxchercher1->addItem("num_serie_machine");
      ui->comboBoxchercher1->addItem("etat");
      ui->comboBoxetat->addItem("Bon etat");
      ui->comboBoxetat->addItem("Panne");
@@ -45,10 +45,17 @@ MainWindow::MainWindow(QWidget *parent)
      ui->comboBoxetat1->addItem("Panne");
      ui->comboBoxetat1->addItem("ne fonctionne plus");
 
-     ui->comboBoxnummachine->setModel(F.afficher1());
-     ui->comboBoxnummachine1->setModel(F.afficher1());
 
      ui->comboBoxnum->setModel(M.affichermachine());
+
+     ui->comboBoxnummodele->setModel(F.afficher1());
+
+    ui->machinefiche->setModel(MF.affichermachinefiche());
+     ui->comboBoxnumfiche->setModel(MF.affichermodele());
+     ui->comboBoxnummachine->setModel(MF.afficherserie());
+
+     ui->comboBoxchercher11->addItem("num_modele_fiche");
+     ui->comboBoxchercher11->addItem("num_serie_machine");
 
 }
 
@@ -134,11 +141,10 @@ void MainWindow::on_pushButtonajouter1_clicked()
     int age=ui->LEage->text().toInt() ;
      etat=ui->comboBoxetat->currentText();
      QDate date= ui->LEdate->date();
-     num_serie_machine=ui->comboBoxnummachine->currentText();
      QString description=ui->LEDes->text();
      QString date_derniere_m= date.toString("dd/MM/yyyy");
      qDebug()<<date_derniere_m;
-    Fichesuivi F(num_modele,age,etat,date_derniere_m,num_serie_machine,description);
+    Fichesuivi F(num_modele,age,etat,date_derniere_m,description);
      QMessageBox msgBox;
 
 
@@ -160,56 +166,7 @@ if (F.verifvideint1(F.getnum_modele())==true&&F.verifvideint1(F.getage())==true&
 
 }
 
-void MainWindow::on_pushButtonimprimer_clicked()
-{  QString strStream;
-    QTextStream out(&strStream);
 
-    const int rowCount = ui->tab_Fiche->model()->rowCount();
-    const int columnCount = ui->tab_Fiche->model()->columnCount();
-    QString TT = QDate::currentDate().toString("yyyy/MM/dd");
-    out <<"<html>\n"
-          "<head>\n"
-           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
-        << "<title>ERP - COMmANDE LIST<title>\n "
-        << "</head>\n"
-        "<body bgcolor=#ffffff link=#5000A0>\n"
-        "<h1 style=\"text-align: center;\"><strong> ****La fiche de suivi **** "+TT+"</strong></h1>"
-        "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
-          "</br> </br>";
-    // headers
-    out << "<thead><tr bgcolor=#d6e5ff>";
-    for (int column = 0; column < columnCount; column++)
-        if (!ui->tab_Fiche->isColumnHidden(column))
-            out << QString("<th>%1</th>").arg(ui->tab_Fiche->model()->headerData(column, Qt::Horizontal).toString());
-    out << "</tr></thead>\n";
-
-    // data table
-    for (int row = 0; row < rowCount; row++) {
-        out << "<tr>";
-        for (int column = 0; column < columnCount; column++) {
-            if (!ui->tab_Fiche->isColumnHidden(column)) {
-                QString data =ui->tab_Fiche->model()->data(ui->tab_Fiche->model()->index(row, column)).toString().simplified();
-                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
-            }
-        }
-        out << "</tr>\n";
-    }
-    out <<  "</table>\n"
-        "</body>\n"
-        "</html>\n";
-
-    QTextDocument *document = new QTextDocument();
-    document->setHtml(strStream);
-
-    QPrinter printer;
-
-    QPrintDialog *dialog = new QPrintDialog(&printer, nullptr);
-    if (dialog->exec() == QDialog::Accepted) {
-        document->print(&printer);
-    }
-
-    delete document;
-}
 
 
 
@@ -218,11 +175,12 @@ void MainWindow::on_pushButtonmodifier_clicked()
     int num_modele=ui->LEnum1->text().toInt();
      int age=ui->LEage1->text().toInt() ;
     etat=ui->comboBoxetat1->currentText();
-     QDate date= ui->LEdate1->date();
+
      QString description=ui->LEDes1->text();
+     QDate date= ui->LEdate1->date();
      QString date_derniere_m= date.toString("dd/MM/yyyy");
      qDebug()<<date_derniere_m;
-     Fichesuivi F(num_modele,age,etat,date_derniere_m,num_serie_machine,description);
+     Fichesuivi F(num_modele,age,etat,date_derniere_m,description);
      QMessageBox msgBox ;
      bool test=F.verifiernum_modele1(num_modele);
      if (test&&F.verifvideint1(F.getage())==true&&F.verifvidestring1(F.getetat())==true&&F.verifvidestring1(F.getdate_derniere_m())==true&&F.verifvidestring1(F.getdescription())==true)
@@ -241,10 +199,11 @@ void MainWindow::on_pushButtonmodifier_clicked()
 void MainWindow::on_pushButtonsupprimer2_clicked()
 {
     Fichesuivi F1;
-    F1.setnum_serie_machine(ui->comboBoxnummachine1->currentText());
+    QString num_modele=ui->comboBoxnummodele->currentText() ;
+    F1.setnum_modele(ui->comboBoxnummodele->currentText().toInt());
 
     QMessageBox msgBox;
-    bool test=F1.supprimer(F1.getnum_serie_machine());
+    bool test=F1.supprimer(F1.getnum_modele());
 
     if(test)
        {
@@ -278,4 +237,87 @@ void MainWindow::on_pushButtonrecherche1_clicked()
 
 }
 
+//****************************machine ,fiche
 
+
+void MainWindow::on_pushButtonajoutermf_clicked()
+{
+    QString num_serie_machine=ui->comboBoxnummachine->currentText();
+    int num_modele_fiche=ui->comboBoxnumfiche->currentText().toInt();
+    Machinefiche MF( num_serie_machine, num_modele_fiche);
+    QMessageBox msgBox;
+
+   if(MF.verifiernum_modele(MF.getnum_modele())==true)
+     {
+       bool test=MF.ajouter();
+          if(test)
+           {  msgBox.setText("Ajout avec succes.");
+             msgBox.exec();
+             ui->machinefiche->setModel(MF.affichermachinefiche());
+          }
+         }
+          else
+              msgBox.setText("Echec d'ajout");
+              msgBox.exec();
+
+
+}
+
+
+void MainWindow::on_pushButtonimprimer_clicked()
+{  QString strStream;
+    QTextStream out(&strStream);
+
+    const int rowCount = ui->machinefiche->model()->rowCount();
+    const int columnCount = ui->machinefiche->model()->columnCount();
+    QString TT = QDate::currentDate().toString("yyyy/MM/dd");
+    out <<"<html>\n"
+          "<head>\n"
+           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+        << "<title>ERP - COMmANDE LIST<title>\n "
+        << "</head>\n"
+        "<body bgcolor=#ffffff link=#5000A0>\n"
+        "<h1 style=\"text-align: center;\"><strong> ****La fiche de suivi **** "+TT+"</strong></h1>"
+        "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
+          "</br> </br>";
+    // headers
+    out << "<thead><tr bgcolor=#d6e5ff>";
+    for (int column = 0; column < columnCount; column++)
+        if (!ui->machinefiche->isColumnHidden(column))
+            out << QString("<th>%1</th>").arg(ui->machinefiche->model()->headerData(column, Qt::Horizontal).toString());
+    out << "</tr></thead>\n";
+
+    // data table
+    for (int row = 0; row < rowCount; row++) {
+        out << "<tr>";
+        for (int column = 0; column < columnCount; column++) {
+            if (!ui->machinefiche->isColumnHidden(column)) {
+                QString data =ui->machinefiche->model()->data(ui->machinefiche->model()->index(row, column)).toString().simplified();
+                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+            }
+        }
+        out << "</tr>\n";
+    }
+    out <<  "</table>\n"
+        "</body>\n"
+        "</html>\n";
+
+    QTextDocument *document = new QTextDocument();
+    document->setHtml(strStream);
+
+    QPrinter printer;
+
+    QPrintDialog *dialog = new QPrintDialog(&printer, nullptr);
+    if (dialog->exec() == QDialog::Accepted) {
+        document->print(&printer);
+    }
+
+    delete document;
+}
+void MainWindow::on_pushButtonrecherche1_2_clicked()
+{
+    int choix;
+      choix=ui->comboBoxchercher11->currentIndex();
+      QString LEcherche11=ui->LEchercher11->text();
+       ui->machinefiche->setModel(MF.chercher1(choix,LEcherche11));
+}

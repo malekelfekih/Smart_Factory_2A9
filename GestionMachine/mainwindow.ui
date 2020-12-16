@@ -14,17 +14,17 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="MachineFiche_2">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>0</y>
       <width>721</width>
-      <height>531</height>
+      <height>541</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -612,37 +612,6 @@ background: white;
 }</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>90</y>
-         <width>101</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Num_serie_machine :</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBoxnummachine">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>90</y>
-         <width>111</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QComboBox {
-	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid #878b94;
-border-radius: 40pxt;
-background: white;
-}</string>
-       </property>
-      </widget>
       <widget class="QComboBox" name="comboBoxetat">
        <property name="geometry">
         <rect>
@@ -958,10 +927,10 @@ color :white;
         </rect>
        </property>
        <property name="text">
-        <string>Num_serie_machine :</string>
+        <string>Num_modele :</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBoxnummachine1">
+      <widget class="QComboBox" name="comboBoxnummodele">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -997,31 +966,6 @@ background-color:#d7d4ff;
 font-weight: bold;
 }
 </string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButtonimprimer">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
-        <y>260</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-padding: 5px;
-border-radius: 5px;
-background-color:#e7fff5;
-font-weight: bold;
-}
-QPushButton:hover
-{
-color :white;
-}</string>
-      </property>
-      <property name="text">
-       <string>Imprimer</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButtonrecherche1">
@@ -1096,6 +1040,223 @@ background: white;
       </property>
       <property name="text">
        <string>chercher</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MachineFiche">
+     <attribute name="title">
+      <string>Machine_Fiche</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>671</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox {
+padding: 5px;
+border-radius: 5px;
+font-weight: bold;
+border: 3px solid gray;
+border-radius: 40px;
+background: #d7d4ff;
+}</string>
+      </property>
+      <property name="title">
+       <string>Machine_Fiche:</string>
+      </property>
+      <widget class="QComboBox" name="comboBoxnummachine">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>30</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border: 3px solid #878b94;
+border-radius: 40pxt;
+background: white;
+}</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Num_serie_machine :</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBoxnumfiche">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>30</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+border: 3px solid #878b94;
+border-radius: 40pxt;
+background: white;
+}</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>30</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Num_modele_fiche :</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonajoutermf">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>70</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+padding: 5px;
+border-radius: 5px;
+background-color:#e7fff5;
+font-weight: bold;
+}
+QPushButton:hover
+{
+color :white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Ajouter</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableView" name="machinefiche">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>160</y>
+        <width>671</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView {
+padding: 5px;
+border-radius: 5px;
+background-color:#d7d4ff;
+font-weight: bold;
+}
+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButtonimprimer">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>350</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+padding: 5px;
+border-radius: 5px;
+background-color:#e7fff5;
+font-weight: bold;
+}
+QPushButton:hover
+{
+color :white;
+}</string>
+      </property>
+      <property name="text">
+       <string>Imprimer</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButtonrecherche1_2">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>350</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+padding: 5px;
+border-radius: 5px;
+background-color:#e7fff5;
+font-weight: bold;
+}
+QPushButton:hover
+{
+color :white;
+}</string>
+      </property>
+      <property name="text">
+       <string>Recherche</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>360</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>chercher</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBoxchercher11">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>360</y>
+        <width>69</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LEchercher11">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>360</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
       </property>
      </widget>
     </widget>

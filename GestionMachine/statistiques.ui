@@ -18,8 +18,8 @@
     <rect>
      <x>330</x>
      <y>190</y>
-     <width>16</width>
-     <height>16</height>
+     <width>21</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -98,8 +98,8 @@ background-color: rgb(0, 0, 255);</string>
     <rect>
      <x>330</x>
      <y>220</y>
-     <width>16</width>
-     <height>16</height>
+     <width>21</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">

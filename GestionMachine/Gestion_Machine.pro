@@ -2,6 +2,7 @@
 QT       += core gui sql
 QT       += printsupport
 QT       += core gui sql charts
+QT       +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,6 +16,7 @@ SOURCES += \
     connexion.cpp \
     fichesuivi.cpp \
     machine.cpp \
+    machinefiche.cpp \
     main.cpp \
     mainwindow.cpp \
     statistiques.cpp
@@ -23,6 +25,7 @@ HEADERS += \
     connexion.h \
     fichesuivi.h \
     machine.h \
+    machinefiche.h \
     mainwindow.h \
     statistiques.h
 
