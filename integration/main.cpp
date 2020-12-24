@@ -4,7 +4,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "connexion.h"
-
+//commit omayma1
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
