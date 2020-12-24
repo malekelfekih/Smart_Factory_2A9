@@ -77,6 +77,7 @@ bool Fichesuivi::ajouter()
          query.bindValue(":description", description);
         return query.exec();
 
+
 }
 
 bool Fichesuivi::verifvideint1(int N)

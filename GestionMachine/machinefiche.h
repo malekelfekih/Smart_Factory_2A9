@@ -9,14 +9,13 @@ class Machinefiche
 public:
     Machinefiche();
     Machinefiche(QString,int);
-    int getnum_modele();
+    QString getnum_serie();
     QSqlQueryModel* afficherserie();
     QSqlQueryModel* affichermodele();
     QSqlQueryModel *affichermachinefiche();
     bool ajouter();
-    bool verifiernum_modele(int);
+    bool verifiernum_serie(QString);
     QSqlQueryModel * chercher1(int,QString );
-
 
 
 
