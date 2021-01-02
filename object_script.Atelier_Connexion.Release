@@ -1,0 +1,12 @@
+INPUT(
+./release\admin.o
+./release\arduino.o
+./release\demande.o
+./release\main.o
+./release\mainwindow.o
+./release\connection.o
+./release\statistiques.o
+./release\qrc_pics.o
+./release\moc_mainwindow.o
+./release\moc_statistiques.o
+);
