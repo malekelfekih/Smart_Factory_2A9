@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Gestion_Clients_CF</class>
+ <widget class="QMainWindow" name="Gestion_Clients_CF">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1079</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion_Clients_CF</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabMain">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1061</width>
+      <height>591</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget::pane { /* The tab widget frame */
+border-top: 5px solid #535353;
+background: #dcdcdc;
+}
+QTabWidget::tab-bar {
+left: 0px; /* move to the right by 5px */
+}
+/* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+background: #dcdcdc;
+border: 2px solid #535353;
+border-bottom-color: #535353; /* same as the pane color */
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+min-width: 120px;
+padding: 8px;
+color: #6a1616;
+font-size:15px;
+font-family:Arial, Helvetica, sans-serif;
+}
+QTabBar::tab:selected, QTabBar::tab:hover {
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #c3a1a1, stop: 0.4 #a57373, stop: 0.5 #874444, stop: 1.0 #6a1616);
+}
+QTabBar::tab:selected {
+border-color: #9B9B9B;
+border-bottom-color: #535353; /* same as pane color */
+color: #dcdcdc;
+font-size:15px;
+font-family:Arial, Helvetica, sans-serif;
+}
+QTabBar::tab:!selected {
+margin-top: 2px; /* make non-selected tabs look smaller */
+}
+QLineEdit {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+QGroupBox {
+    border: 1px solid gray;
+    border-radius: 9px;
+    margin-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}
+
+QComboBox
+{
+	background : #b1b1b1;
+	background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+    border-style: solid;
+    border: 1px solid #1e1e1e;
+    border-radius: 5;
+    selection-color : #ffffff;
+}
+
+QComboBox:hover,QPushButton:hover
+{
+    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+
+
+QComboBox:on
+{
+    padding-top: 3px;
+    padding-left: 4px;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+    selection-background-color: #ffaa00;
+}
+
+QComboBox QAbstractItemView
+{
+    border: 2px solid darkgray;
+    selection-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+
+QComboBox::drop-down
+{
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 15px;
+
+     border-left-width: 0px;
+     border-left-color: darkgray;
+     border-left-style: solid; /* just a single line */
+     border-top-right-radius: 3px; /* same radius as the QComboBox */
+     border-bottom-right-radius: 3px;
+ }
+
+QPushButton
+{
+    color: #b1b1b1;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+    border-width: 1px;
+    border-color: #1e1e1e;
+    border-style: solid;
+    border-radius: 6;
+    padding: 3px;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+QPushButton:pressed
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+}
+
+QTableView
+{
+    alternate-background-color: #1F1F1F;
+    background-color: gray;
+    gridline-color: gray;
+    color: gray;
+}
+QTableView::item 
+{   
+    color: white;        
+}
+
+QTableView::item:focus
+{   
+    color: gray;
+    background: #0063cd;            
+}        
+QTableView::item:selected
+{   
+    color: gray;
+    background: white;            
+}
+QAbstractItemView
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0.1 #646464, stop: 1 #5d5d5d);
+}
+QComboBox QAbstractItemView
+{
+    border: 2px solid darkgray;
+    selection-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+QTextEdit
+{
+    border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+QPlainTextEdit
+{
+    border: 1px solid #ccc;
+	border-radius: 4px;
+}
+QMainWindow::separator
+{
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #161616, stop: 0.5 #151515, stop: 0.6 #212121, stop:1 #343434);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #4c4c4c;
+    spacing: 3px; /* spacing between items in the tool bar */
+}
+
+QMainWindow::separator:hover
+{
+
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #d7801a, stop:0.5 #b56c17 stop:1 #ffa02f);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #6c6c6c;
+    spacing: 3px; /* spacing between items in the tool bar */
+}
+QRadioButton::indicator:checked, QRadioButton::indicator:unchecked{
+    color: #b1b1b1;
+    background-color: #323232;
+    border: 1px solid #b1b1b1;
+    border-radius: 6px;
+}
+
+QRadioButton::indicator:checked
+{
+    background-color: qradialgradient(
+        cx: 0.5, cy: 0.5,
+        fx: 0.5, fy: 0.5,
+        radius: 1.0,
+        stop: 0.25 #ffaa00,
+        stop: 0.3 #323232
+    );
+}
+
+QCheckBox::indicator{
+    color: #b1b1b1;
+    background-color: #323232;
+    border: 1px solid #b1b1b1;
+    width: 9px;
+    height: 9px;
+}
+
+QRadioButton::indicator
+{
+    border-radius: 6px;
+}
+
+QRadioButton::indicator:hover, QCheckBox::indicator:hover
+{
+    border: 1px solid #ffaa00;
+}
+QRadioButton::indicator:disabled
+{
+    border: 1px solid #444;
+}</string>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Welcome</string>
+     </attribute>
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1079</width>
+        <height>542</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGraphicsView {
+background : #dcdcdc;
+border : none;
+}</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Add">
+     <attribute name="title">
+      <string>Ajouter Client</string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>808</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Nom :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="nom"/>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>CIN :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="cin"/>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Numéro Télephone :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="num_phone"/>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Date De Naissance :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="hbd">
+           <property name="dateTime">
+            <datetime>
+             <hour>0</hour>
+             <minute>0</minute>
+             <second>0</second>
+             <year>2002</year>
+             <month>1</month>
+             <day>1</day>
+            </datetime>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Email :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="mail"/>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Prenom :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="prenom"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QSplitter" name="splitter_3">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>400</y>
+        <width>241</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QPushButton" name="stats">
+       <property name="text">
+        <string>Stats</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="add">
+       <property name="text">
+        <string>Ajouter</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Display">
+     <attribute name="title">
+      <string>Afficher Client</string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>10</y>
+        <width>941</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="1" column="0">
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QTableView" name="tableView"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="display">
+           <property name="text">
+            <string>Afficher Client</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QTableView" name="tableView_2"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>Afiicher Cartes</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <widget class="QPushButton" name="tri">
+           <property name="text">
+            <string>Trier</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="down">
+           <property name="text">
+            <string>DOWN</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="up">
+           <property name="text">
+            <string>UP</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="critere">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>Nom</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prénom</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>CIN</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Mail</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Numéro de télephone</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Date de naissance</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Opérateur</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="crit"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="search">
+           <property name="text">
+            <string>Rechercher</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Update">
+     <attribute name="title">
+      <string>Modifier Client</string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>851</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_13">
+           <property name="text">
+            <string>Nom :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="nom_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>CIN :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cin_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_17">
+           <property name="text">
+            <string>Email :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="mail_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>Date De Naissance :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="hbd_2">
+           <property name="dateTime">
+            <datetime>
+             <hour>0</hour>
+             <minute>0</minute>
+             <second>0</second>
+             <year>2002</year>
+             <month>1</month>
+             <day>1</day>
+            </datetime>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>Prenom :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="prenom_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <property name="leftMargin">
+          <number>80</number>
+         </property>
+         <property name="rightMargin">
+          <number>80</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>Numéro Télephone :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="num_phone_2"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>400</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Modifier</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Delete">
+     <attribute name="title">
+      <string>Supprimer Client</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>541</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Supression par CIN :</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>90</y>
+         <width>301</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_13">
+        <item>
+         <widget class="QComboBox" name="crit_delet"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="delete_2">
+          <property name="text">
+           <string>Supprimer</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Réclamation</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>681</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Réclamtion</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>30</y>
+         <width>501</width>
+         <height>311</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Objet :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="objet"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Description :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QTextEdit" name="description"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>390</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Réclamer</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1079</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

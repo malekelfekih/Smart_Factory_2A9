@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/resc">
+        <file>resc/200.webp</file>
+        <file>resc/ajax-loader.gif</file>
+        <file>resc/welcome.gif</file>
+        <file>resc/Welcome.mp3</file>
+        <file>resc/clients.ico</file>
+    </qresource>
+</RCC>
