@@ -4,7 +4,8 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "connexion.h"
-//commit omayma1
+#include "login.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -12,12 +13,17 @@ int main(int argc, char *argv[])
     bool test=c.ouvrirConnexion();
     MainWindow w;
 
+    /*int res;
+    login w2;
+    w2.setWindowTitle("Log In");
+    res = w2.exec();*/
+
          if(test)
          {
 
              w.show();
-             QMessageBox::information(nullptr, QObject::tr("database is open"),
-                         QObject::tr("connection successful.\n""Click Cancel to exit."), QMessageBox::Cancel);
+             /*QMessageBox::information(nullptr, QObject::tr("database is open"),
+                         QObject::tr("connection successful.\n""Click Cancel to exit."), QMessageBox::Cancel);*/
 
              // qDebug()<<"Connection successful";
          }
@@ -29,3 +35,5 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+

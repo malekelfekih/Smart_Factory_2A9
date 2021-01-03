@@ -18,7 +18,19 @@
 #include <QtCharts/QPieSlice>
 #include <QPainter>
 #include <QSqlQuery>
-
+#include "employee.h"
+#include <QDialog>
+#include <QGridLayout>
+#include <QWidget>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QCategoryAxis>
+#include <QtCharts/QChartView>
+#include <QtCharts/QHorizontalStackedBarSeries>
+#include <QtCharts/QLegend>
+#include <QtCharts/QLineSeries>
+QT_CHARTS_USE_NAMESPACE
 
 namespace Ui {
 class Statistiques;
@@ -40,6 +52,7 @@ public:
 
 private:
     Ui::Statistiques *ui;
+
 
 };
 

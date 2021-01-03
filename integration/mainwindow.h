@@ -9,6 +9,30 @@
 #include"fournisseur.h"
 #include "commande.h"
 #include "arduino.h"
+#include "employee.h"
+#include "demande.h"
+
+#include "cf.h"
+#include "client.h"
+#include <QDebug>
+#include <QDesktopServices>
+#include <QDesktopWidget>
+#include <QFileInfo>
+#include <QGraphicsProxyWidget>
+#include <QGraphicsScene>
+#include <QLabel>
+#include <QMainWindow>
+#include <QMediaPlayer>
+#include <QMessageBox>
+#include <QMovie>
+#include <QPainter>
+#include <QPdfWriter>
+#include <QPropertyAnimation>
+#include <QSqlDatabase>
+#include <QTimer>
+#include <QUrl>
+#include <QWidget>
+#include <QtSql>
 
 
 QT_BEGIN_NAMESPACE
@@ -74,6 +98,84 @@ private slots:
    void on_Demander_clicked();//arduino
 
     void update_label(); //arduino
+ //*****************employee*********
+    void on_ajouter_2_clicked();
+
+
+
+
+
+
+
+    void on_modifier_clicked();
+
+    void on_supprimer_2_clicked();
+
+
+
+    void on_chercher_clicked();
+
+
+
+
+
+    void on_trier_clicked();
+
+    void on_envoyer_clicked();
+
+
+
+    void on_modif_demande_clicked();
+
+   // void on_mise_ajour_clicked();
+
+    void on_mise_a_jour_clicked();
+
+   // void on_mise_a_jours_clicked();
+
+    void on_accepter_clicked();
+
+   void on_refuser_clicked();
+
+   // void on_lineEdit_5_cursorPositionChanged(int arg1, int arg2);
+
+    //void on_pushButton_3_clicked();
+
+    void on_supprimer_demande_clicked();
+
+
+
+    void on_recherche_demande_clicked();
+
+    void on_trier_les_demandes_clicked();
+
+   // void on_pushButton_clicked();
+
+  //  void on_stat_clicked();
+    void on_stat_clicked();
+
+
+    //**********************client
+
+    void on_add_clicked();
+
+    void on_stats_clicked();
+
+    void on_display_clicked();
+
+    void on_tri_clicked();
+
+    void on_search_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_delete_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -85,6 +187,25 @@ private:
 
     Fournisseur F;
     Commande c;
+
+
+    EMPLOYEE E;
+    demande d;
+
+
+
+    client CL;
+    QSqlDatabase mydb;
+    QPropertyAnimation *animation;
+    QMediaPlayer *player;
+    QLabel *Gif_Anim;
+    QMovie *movie;
+    QGraphicsProxyWidget *proxy;
+    QGraphicsScene *scene;
+    QPdfWriter *PDFWriter;
+    QTimer timer;
+    QString operateur;
+    cf carteF;
 
 
     QByteArray data;

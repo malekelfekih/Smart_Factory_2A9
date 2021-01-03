@@ -87,23 +87,19 @@ QSqlQueryModel *Machinefiche::chercher1(int test,QString text)
     QSqlQuery query;
         QSqlQueryModel* model=new QSqlQueryModel();
         if(test==0)
-       { query.prepare("SELECT * FROM MACHINE_FICHE where NUM_MODELE_FICHE like '"+text+"'");
+       { qDebug()<<"hello";
+            query.prepare("SELECT* FROM fiche F LEFT JOIN machine_fiche MF ON F.num_modele= MF.num_modele_fiche where NUM_MODELE_FICHE  like '"+text+"'");
          query.exec();
          model->setQuery(query);
          }
        if(test==1)
           {
-           query.prepare("SELECT * FROM MACHINE_FICHE where NUM_SERIE_MACHINE like '"+text+"'");
+           query.prepare("SELECT* FROM machine M LEFT JOIN machine_fiche MF ON M.num_serie= MF.num_serie_machine where NUM_SERIE_MACHINE  like '"+text+"'");
                query.exec();
                model->setQuery(query);
        }
-       /*if(test==2)
-          {
-           query.prepare("SELECT* FROM fiche F LEFT JOIN machine_fiche MF ON F.num_modele= MF.num_modele_fiche where NUM_MODELE_FICHE  like '"+text+"'");
 
-           query.exec();
-               model->setQuery(query);
-       }*/
+       return model;
 
 
 

@@ -1,12 +1,22 @@
 #include "statistiques.h"
 #include "ui_statistiques.h"
+#include <QGridLayout>
+#include <QWidget>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QCategoryAxis>
+#include <QtCharts/QChartView>
+#include <QtCharts/QHorizontalStackedBarSeries>
+#include <QtCharts/QLegend>
+#include <QtCharts/QLineSeries>
 
 Statistiques::Statistiques(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Statistiques)
 {
     ui->setupUi(this);
-}
+ }
 
 Statistiques::~Statistiques()
 {
