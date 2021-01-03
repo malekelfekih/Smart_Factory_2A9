@@ -1807,3 +1807,10 @@ RecupRole=A1.afficherRole();
 
 
  }}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(1);
+    ui->username->setText(" ");
+    ui->password->setText(" ");
+}
