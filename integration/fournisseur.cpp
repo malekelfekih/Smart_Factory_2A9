@@ -285,3 +285,129 @@ QSqlQueryModel* Fournisseur ::affichercode()
 
 
 
+QSqlQueryModel *Fournisseur::triUP(int test) {
+  QSqlQuery query;
+  QSqlQueryModel *model = new QSqlQueryModel();
+
+  if (test == 0) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY code asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 1) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY nom asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 2) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY adresse asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 3) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Numero_tel asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 4) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Service asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 5) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Debut_contrat asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 6) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Fin_contrat asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+  if (test == 7) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY courriel asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+  model->setHeaderData(0, Qt::Horizontal, QObject::tr("Code"));
+  model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+  model->setHeaderData(2, Qt::Horizontal, QObject::tr("Adresse"));
+  model->setHeaderData(3, Qt::Horizontal, QObject::tr("Numero_tel"));
+  model->setHeaderData(4, Qt::Horizontal, QObject::tr("Service"));
+  model->setHeaderData(5, Qt::Horizontal, QObject::tr("Debut_contrat"));
+  model->setHeaderData(6, Qt::Horizontal, QObject::tr("Fin_contrat"));
+  model->setHeaderData(7, Qt::Horizontal, QObject::tr("courriel"));
+
+  return model;
+}
+
+QSqlQueryModel * Fournisseur ::triDOWN(int test) {
+  QSqlQuery query;
+  QSqlQueryModel *model = new QSqlQueryModel();
+
+  if (test == 0) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY code desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 1) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY  nom desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 2) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Adresse desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 3) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY numero_tel desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 4) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Service desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 5) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Debut_contrat desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  if (test == 6) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY Fin_contrat desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+  if (test == 7) {
+    query.prepare(" SELECT * FROM fournisseur ORDER BY courriel desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
+
+  model->setHeaderData(0, Qt::Horizontal, QObject::tr("Code"));
+  model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+  model->setHeaderData(2, Qt::Horizontal, QObject::tr("Adresse"));
+  model->setHeaderData(3, Qt::Horizontal, QObject::tr("Numero_tel"));
+  model->setHeaderData(4, Qt::Horizontal, QObject::tr("Service"));
+  model->setHeaderData(5, Qt::Horizontal, QObject::tr("Debut_contrat"));
+  model->setHeaderData(6, Qt::Horizontal, QObject::tr("Fin_contrat"));
+  model->setHeaderData(7, Qt::Horizontal, QObject::tr("courriel"));
+
+  return model;
+}
+
+

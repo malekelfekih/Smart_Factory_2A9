@@ -46,7 +46,7 @@ font-weight: bold;
 </string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_18">
        <attribute name="title">
@@ -148,7 +148,7 @@ font-weight: bold;
 </string>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -160,7 +160,7 @@ font-weight: bold;
             <x>0</x>
             <y>0</y>
             <width>731</width>
-            <height>391</height>
+            <height>441</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -173,7 +173,7 @@ font-weight: bold;
 </string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -1467,7 +1467,7 @@ background: #d7d4ff;
 }</string>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_9">
              <attribute name="title">
@@ -1793,48 +1793,10 @@ font-weight: bold;
 </string>
               </property>
              </widget>
-             <widget class="QPushButton" name="pb_envoyer">
-              <property name="geometry">
-               <rect>
-                <x>570</x>
-                <y>200</y>
-                <width>131</width>
-                <height>23</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
-padding: 5px;
-border-radius: 5px;
-background-color:#e7fff5;
-font-weight: bold;
-}
-QPushButton:hover
-{
-color :white;
-}</string>
-              </property>
-              <property name="text">
-               <string>envoyer un mail</string>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_32">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>30</y>
-                <width>151</width>
-                <height>16</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>Chercher un fournisseur par :</string>
-              </property>
-             </widget>
              <widget class="QComboBox" name="comboBox_2">
               <property name="geometry">
                <rect>
-                <x>190</x>
+                <x>250</x>
                 <y>30</y>
                 <width>141</width>
                 <height>22</height>
@@ -1852,7 +1814,7 @@ background: white;
              <widget class="QLineEdit" name="LErecherche_2">
               <property name="geometry">
                <rect>
-                <x>370</x>
+                <x>400</x>
                 <y>30</y>
                 <width>181</width>
                 <height>20</height>
@@ -1890,6 +1852,57 @@ color :white;
               </property>
               <property name="text">
                <string>Rechercher</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="tri_2">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>30</y>
+                <width>81</width>
+                <height>23</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+padding: 5px;
+border-radius: 5px;
+background-color:#e7fff5;
+font-weight: bold;
+}
+QPushButton:hover
+{
+color :white;
+}</string>
+              </property>
+              <property name="text">
+               <string>Trier</string>
+              </property>
+             </widget>
+             <widget class="QRadioButton" name="down_3">
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>30</y>
+                <width>71</width>
+                <height>23</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>DOWN</string>
+              </property>
+             </widget>
+             <widget class="QRadioButton" name="up_3">
+              <property name="geometry">
+               <rect>
+                <x>180</x>
+                <y>30</y>
+                <width>46</width>
+                <height>23</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>UP</string>
               </property>
              </widget>
             </widget>
@@ -2298,7 +2311,7 @@ background: white;
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_14">
              <attribute name="title">
@@ -3003,7 +3016,7 @@ background: white;
            </rect>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <property name="documentMode">
            <bool>true</bool>
@@ -4883,7 +4896,7 @@ color :white;
            <string notr="true"/>
           </property>
           <property name="currentIndex">
-           <number>5</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_23">
            <attribute name="title">
@@ -5752,6 +5765,48 @@ color :white;
        <attribute name="title">
         <string>Détection d'incendie</string>
        </attribute>
+       <widget class="QLabel" name="label_arduino">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>50</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Rockwell Extra Bold</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>OFF</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_58">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>30</y>
+          <width>201</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Rockwell Extra Bold</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Etat de la lampe</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>

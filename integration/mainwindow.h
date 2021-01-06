@@ -11,9 +11,10 @@
 #include "arduino.h"
 #include "employee.h"
 #include "demande.h"
-
+#include "statf.h"
 #include "cf.h"
 #include "client.h"
+#include "arduino1.h"
 #include <QDebug>
 #include <QDesktopServices>
 #include <QDesktopWidget>
@@ -179,6 +180,13 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    //void on_Desactiver_clicked();
+
+    void on_tri_2_clicked();
+
+    void update_label1();
+
+
 private:
     Ui::MainWindow *ui;
     Machine M;
@@ -212,6 +220,7 @@ private:
 
     QByteArray data;
     Arduino A;
+    Arduino A1;
     int x=0;
 };
 #endif // MAINWINDOW_H

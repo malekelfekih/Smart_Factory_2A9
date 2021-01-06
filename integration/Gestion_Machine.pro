@@ -16,6 +16,7 @@ CONFIG += c++11
 SOURCES += \
     admin.cpp \
     arduino.cpp \
+    arduino1.cpp \
     cf.cpp \
     client.cpp \
     commande.cpp \
@@ -28,11 +29,13 @@ SOURCES += \
     machinefiche.cpp \
     main.cpp \
     mainwindow.cpp \
+    statf.cpp \
     statistiques.cpp
 
 HEADERS += \
     admin.h \
     arduino.h \
+    arduino1.h \
     cf.h \
     client.h \
     commande.h \
@@ -44,10 +47,12 @@ HEADERS += \
     machine.h \
     machinefiche.h \
     mainwindow.h \
+    statf.h \
     statistiques.h
 
 FORMS += \
     mainwindow.ui \
+    statf.ui \
     statistiques.ui
 
 # Default rules for deployment.

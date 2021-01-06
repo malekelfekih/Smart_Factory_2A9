@@ -42,6 +42,10 @@ public:
     bool verifint(int);
     bool verifcode(int);
      QSqlQueryModel* affichercode();
+
+
+     QSqlQueryModel *triUP(int test);
+     QSqlQueryModel *triDOWN(int test);
 private:
 
     int code,num_tel;

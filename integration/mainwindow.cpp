@@ -4,6 +4,7 @@
 #include "fichesuivi.h"
 #include "statistiques.h"
 #include "machinefiche.h"
+#include "arduino1.h"
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QMessageBox>
@@ -30,6 +31,7 @@
 
 #include "cf.h"
 #include "client.h"
+#include "statf.h"
 
 #include "admin.h"
 
@@ -79,14 +81,14 @@ MainWindow::MainWindow(QWidget *parent)
        ui->comboBox_code->setModel(F.affichercode());
 
 
-     ui->comboBox_p->addItem("matieres premieres");
+     ui->comboBox_p->addItem("lait");
      ui->comboBox_p->addItem("machines");
-     ui->comboBox_pm->addItem("matieres premieres");
+     ui->comboBox_pm->addItem("lait");
      ui->comboBox_pm->addItem("machines");
 
-     ui->comboBox_s->addItem("matieres premieres");
+     ui->comboBox_s->addItem("lait");
      ui->comboBox_s->addItem("machines");
-     ui->comboBox_sm->addItem("matieres premieres");
+     ui->comboBox_sm->addItem("lait");
      ui->comboBox_sm->addItem("machines");
 
      ui->comboBox_m->addItem("cheque");
@@ -169,6 +171,25 @@ MainWindow::MainWindow(QWidget *parent)
         case(-1):qDebug() << "arduino is not available";
         }
          QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+
+      //*******arduino1
+         int ret1 = A1.connect_arduino(); // lancer la connexion à arduino
+         switch (ret1) {
+         case (0):
+           qDebug() << "arduino is available and connected to : "
+                    << A1.getarduino_port_name();
+           break;
+         case (1):
+           qDebug() << "arduino is available but not connected to :"
+                    << A1.getarduino_port_name();
+           break;
+         case (-1):
+           qDebug() << "arduino is not available";
+         }
+         QObject::connect(A1.getserial(), SIGNAL(readyRead()), this,
+                          SLOT(update_label())); // permet de lancer
+         // le slot update_label suite à la reception du signal readyRead (reception
+         // des données).
 
 }
 
@@ -355,6 +376,9 @@ void MainWindow::on_pushButtonrecherche1_clicked()
        ui->tab_Fiche->setModel(FS.chercher1(choix,LErecherche1));
 
 
+
+
+
 }
 
 //****************************machine ,fiche
@@ -461,6 +485,20 @@ void MainWindow::on_bouton_ajouter_clicked()
    Fournisseur F(code,nom,adresse,num_tel,service,debut_contrat,Fin_contrat,courriel);
   QMessageBox msgBox;
 
+
+  bool test2 = false;
+  for (int i = 0; i < adresse.length(); i++) {
+    if (adresse[i] == "@")
+      test2 = true;
+  }
+  if (test2 == false) {
+    QMessageBox::information(nullptr, QObject::tr("Add"),
+                             QObject::tr("Invalid mail .\n"
+                                         "Click Cancel to exit."),
+                             QMessageBox::Cancel);
+    return;
+  }
+
    if(F.verifvidestring(F.getnom())==true&&F.verifvidestring(F.getadresse())==true&&F.verifvidestring(F.getcourriel())==true&&F.verifint(F.getcode())==true&&F.verifint(F.getnum())==true)
    {
        bool test=F.ajouter();
@@ -477,6 +515,9 @@ void MainWindow::on_bouton_ajouter_clicked()
 
       msgBox.setText("Echec d'ajout");
        msgBox.exec();
+
+
+       ui->comboBox_code->setModel(F.afficher());
 
 
 }
@@ -634,7 +675,7 @@ void MainWindow::on_pb_chercher_clicked()
 
         int choix;
           choix=ui->comboBox->currentIndex();
-          QString LErecherche=ui->LErecherche->text();
+          QString LErecherche=ui->LErecherche_3->text();
 
              ui->tab_commande->setModel(c.recherche(LErecherche,choix));
 
@@ -810,21 +851,6 @@ void MainWindow::on_ajouter_2_clicked()
                return;
            }
       }
-     /* bool test6=false;
-        for(int i=0 ; i<date_naissance.length();i++)
-        {
-           if(date_naissance[i] =="  /  /    ")
-           {
-              test6=true;
-           }
-           if(test6==false)
-           {
-               QMessageBox::information(nullptr, QObject::tr("ajout"),
-                           QObject::tr("date de naissnace  non valider.\n"
-                                       "Click Cancel to exit."), QMessageBox::Cancel);
-               return;
-           }
-      }*/
 
  EMPLOYEE E (nom, prenom , email ,  adresse, type_de_contarct, operateur, date_naissance, date_embauche ,id ,cin ,num_telephone, salaire  );
 
@@ -849,64 +875,6 @@ else
                             "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
-
-
-
-
-
-
-/*void MainWindow::on_modifier_clicked()
-{
-
-
-    EMPLOYEE *E=new EMPLOYEE();
-
-    E->setNom(ui->le_nom->text());
-    E->setPrenom(ui->le_prenom->text());
-
-    E->setAdresse(ui->le_adresse->text());
-    E->setEmail(ui->le_email->text());
-    E->setType_de_contract(ui->le_type_contract->currentText());
-
-
-    E->setID(ui->le_id->text().toInt());
-    E->setCIN(ui->le_cin->text().toInt());
-    E->setNum_telephone(ui->le_tel->text().toInt());
-    E->setSalaire(ui->le_salaire->text().toInt());
-
-
-    E->setDate_naissance(ui->le_naissance->date());
-    E->setDate_naissance(ui->le_embauche->date());
-
-
-   EMPLOYEE E1 ; E1.setID(ui->le_identifiant_2->text().toInt());
-     bool test=E1.modifier(E1.getID());
-     QMessageBox msgBox;
-     if(test)*/
-
-
-
-
-
-  /*  bool test=E->modifier();
-
-    QMessageBox msgBox;
-    if(test)
-
-    {
-        QMessageBox::information(nullptr, QObject::tr("ok"),
-                    QObject::tr("edit successful.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-        ui->table_employee_2->setModel(E->afficher());
-
-    }
-    else
-        QMessageBox::critical(nullptr, QObject::tr("Not ok"),
-                    QObject::tr("edit failed.\n"
-
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-
-}*/
 
 
 
@@ -1007,61 +975,6 @@ QMessageBox msgBox;
 
 }
 
-/*bool test1=false;
-for(int i=0 ; i<date_debut.length();i++)
-{
-    if(date_debut[i]=="/ / / ")
-        test1=true;
-
-}
-if(test1==false)
-{
-    QMessageBox::information(nullptr, QObject::tr("ajout"),
-                QObject::tr("date_debut non valider.\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
-
-}*/
-
-
- /*demande d ( identifiant , date_debut ,date_fin ,type_de_conge );
-
-
-bool test=d.ajouter_demande();
-if(test  )
-
-{
-
-    QMessageBox::information(nullptr, QObject::tr("ok"),
-                QObject::tr("add successful.\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
-    ui->table_conges->setModel(d.afficher_demande());
-
-//if(identifiant.length()!=8)
-}
-else
-    QMessageBox::critical(nullptr, QObject::tr("Not ok"),
-                QObject::tr("add failed.\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
-
-
-
-
-
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void MainWindow::on_mise_a_jour_clicked()
 {
@@ -1087,28 +1000,6 @@ void MainWindow::on_mise_a_jour_clicked()
 
 }
 
-/*void MainWindow::on_mise_a_jours_clicked()
-{
-    ui->liste_demande->setModel(d.afficher_demande());
-
-
-    bool test=d.afficher_demande();
-    QMessageBox msgBox;
-    if(test)
-    {
-        QMessageBox::information(nullptr, QObject::tr("ok"),
-                    QObject::tr("votre demande est accepter.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-         ui->table_employee_2->setModel(E.afficher());
-
-    }
-    else
-        QMessageBox::critical(nullptr, QObject::tr("Not ok"),
-                    QObject::tr("votre demande n'est pas mise à jours .\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-
-}
-*/
 
 
 void MainWindow::on_accepter_clicked()
@@ -1134,28 +1025,6 @@ void MainWindow::on_accepter_clicked()
 
          msgBox.setText("non");
         msgBox.exec();
-
-/*
-if(test)
-{
-
-QString e ;
-
-    QMessageBox::information(nullptr, QObject::tr("ok"),
-                QObject::tr("la demande est accepter.\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
-     //ui->table_employee_2->setModel(E.afficher());
-//e = d.getEtats();
-//e = "Accepté";
-//d.setEtats(e);
-
-         //  d.getEtats() = d.etats_string(e);
-            ui->liste_demande->setModel(d.afficher_demande());
-}
-else
-    QMessageBox::critical(nullptr, QObject::tr("Not ok"),
-                QObject::tr("erreur .\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);*/
 
 
 
@@ -1198,26 +1067,6 @@ void MainWindow::on_supprimer_demande_clicked()
 }
 
 
-/*
-    EMPLOYEE E1 ; //E1.setID(ui->le_identifiant_2->text().toInt());
-    E1.setID(ui->comboBox_sup_dem->currentText().toInt());
-    bool test=E1.supprimer(E1.getID());
-    QMessageBox msgBox;
-    if(test)
-    {
-        QMessageBox::information(nullptr, QObject::tr("ok"),
-                    QObject::tr("supp successful.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-         ui->table_employee_2->setModel(E.afficher());
-
-    }
-    else
-        QMessageBox::critical(nullptr, QObject::tr("Not ok"),
-                    QObject::tr("supp failed.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-
-
-*/
 
 
 
@@ -1256,23 +1105,6 @@ void MainWindow::on_trier_les_demandes_clicked()
 }
 
 
-/*void MainWindow::on_stat_clicked()
-{
-    QSqlQuery query ;
-    QSqlQueryModel * model =new QSqlQueryModel();
-    stats s;
-    model =s.returnNumber();
-    ui->table_employee_2->setModel(model);
-    QString nbr_employe=
-    QString :: number(ui->table_employee_2->model()->index(0,0).data().toInt());
-    model =E.afficher();
-    ui->table_employee_2->setModel(model);
-    QMessageBox msgbox;
-    msgbox.setText("le nombre actuel des employes est " +nbr_employe +
-                   "employes in the systm .");
-    msgbox.exec();
-
-}*/
 
 
 
@@ -1366,15 +1198,14 @@ QMessageBox msgBox;
 
 void MainWindow::on_stat_clicked()
 {
-    /*int res;
-    statistiques w(this);
+    int res;
+    statf w(this);
     w.setWindowTitle("Statistiques des operateurs");
 
     res = w.exec();
     qDebug() << res;
     if (res == QDialog::Rejected)
-      return;*/
-
+      return;
 }
 
 
@@ -1404,7 +1235,14 @@ void MainWindow::on_Demander_clicked()
 
 }
 
-
+//*******************************detecteur gaz**************************
+void MainWindow::update_label1() {
+  data = A1.read_from_arduino();
+  if (data == "a")
+    ui->label_arduino->setText("ATTENTION!!");
+  else
+    ui->label_arduino->setText("PAS D'INCENDIE");
+}
 
 //****************************client
 void MainWindow::MainWindow::on_add_clicked() {
@@ -1495,13 +1333,14 @@ void MainWindow::MainWindow::on_add_clicked() {
 }
 
 void MainWindow::MainWindow::on_stats_clicked() {
-  /*int res;
-  Stat w(this);
-  w.setWindowTitle("Statistiques des operateurs");
+    int res;
+    statf w(this);
+    w.setWindowTitle("Statistiques des operateurs");
 
-  res = w.exec();
-  if (res == QDialog::Rejected)
-    return;*/
+    res = w.exec();
+    qDebug() << res;
+    if (res == QDialog::Rejected)
+      return;
 }
 
 void MainWindow::MainWindow::on_display_clicked() {
@@ -1527,15 +1366,16 @@ void MainWindow::MainWindow::on_tri_clicked() {
       qDebug() << choix;
       QSqlQueryModel *model = new QSqlQueryModel();
 
-      if (ui->up->isChecked())
+      if (ui->up_2->isChecked())
         model = CL.triUP(choix);
-      else if (ui->down->isChecked())
+      else if (ui->down_2->isChecked())
         model = CL.triDOWN(choix);
       else
         model = CL.afficher();
       ui->tableView->setModel(model);
       ui->cin_2->setModel(model);
       ui->crit_delet->setModel(model);
+
 }
 
 void MainWindow::MainWindow::on_search_clicked() {
@@ -1814,3 +1654,30 @@ void MainWindow::on_pushButton_7_clicked()
     ui->username->setText(" ");
     ui->password->setText(" ");
 }
+
+/*
+void MainWindow::on_Desactiver_clicked()
+{
+
+}
+*/
+
+void MainWindow::on_tri_2_clicked()
+{
+    int choix;
+
+      choix = ui->comboBox_2->currentIndex();
+      qDebug() << choix;
+      QSqlQueryModel *model = new QSqlQueryModel();
+
+      if (ui->up_3->isChecked())
+        model = F.triUP(choix);
+      else if (ui->down_3->isChecked())
+        model = F.triDOWN(choix);
+      else
+        model = F.afficher();
+      ui->tab_fournisseur->setModel(model);
+
+}
+
+

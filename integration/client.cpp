@@ -210,117 +210,117 @@ QSqlQueryModel *client::display(QSqlDatabase mydb) {
 }
 
 QSqlQueryModel *client::triUP(int test) {
-    QSqlQuery query;
-      QSqlQueryModel *model = new QSqlQueryModel();
+  QSqlQuery query;
+  QSqlQueryModel *model = new QSqlQueryModel();
 
-      if (test == 0) {
-        query.prepare(" SELECT * FROM client ORDER BY name asc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 0) {
+    query.prepare(" SELECT * FROM client ORDER BY name asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 1) {
-        query.prepare(" SELECT * FROM client ORDER BY prenom asc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 1) {
+    query.prepare(" SELECT * FROM client ORDER BY prenom asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 2) {
-        query.prepare(" SELECT * FROM client ORDER BY cin asc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 2) {
+    query.prepare(" SELECT * FROM client ORDER BY cin asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 3) {
-        query.prepare(" SELECT * FROM client ORDER BY mail asc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 3) {
+    query.prepare(" SELECT * FROM client ORDER BY mail asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 4) {
-        query.prepare(" SELECT * FROM client ORDER BY phone asc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 4) {
+    query.prepare(" SELECT * FROM client ORDER BY phone asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 5) {
-        query.prepare(" SELECT * FROM client ORDER BY hbd asc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 5) {
+    query.prepare(" SELECT * FROM client ORDER BY hbd asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 6) {
-        query.prepare(" SELECT * FROM client ORDER BY operateur asc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 6) {
+    query.prepare(" SELECT * FROM client ORDER BY operateur asc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-      model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-      model->setHeaderData(3, Qt::Horizontal, QObject::tr("Mail"));
-      model->setHeaderData(4, Qt::Horizontal, QObject::tr("Phone"));
-      model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date de naissance"));
-      model->setHeaderData(6, Qt::Horizontal, QObject::tr("Operateur"));
+  model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+  model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+  model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+  model->setHeaderData(3, Qt::Horizontal, QObject::tr("Mail"));
+  model->setHeaderData(4, Qt::Horizontal, QObject::tr("Phone"));
+  model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date de naissance"));
+  model->setHeaderData(6, Qt::Horizontal, QObject::tr("Operateur"));
 
-      return model;
+  return model;
 }
 
 QSqlQueryModel *client::triDOWN(int test) {
-    QSqlQuery query;
-      QSqlQueryModel *model = new QSqlQueryModel();
+  QSqlQuery query;
+  QSqlQueryModel *model = new QSqlQueryModel();
 
-      if (test == 0) {
-        query.prepare(" SELECT * FROM client ORDER BY name desc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 0) {
+    query.prepare(" SELECT * FROM client ORDER BY name desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 1) {
-        query.prepare(" SELECT * FROM client ORDER BY prenom desc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 1) {
+    query.prepare(" SELECT * FROM client ORDER BY prenom desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 2) {
-        query.prepare(" SELECT * FROM client ORDER BY cin desc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 2) {
+    query.prepare(" SELECT * FROM client ORDER BY cin desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 3) {
-        query.prepare(" SELECT * FROM client ORDER BY mail desc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 3) {
+    query.prepare(" SELECT * FROM client ORDER BY mail desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 4) {
-        query.prepare(" SELECT * FROM client ORDER BY phone desc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 4) {
+    query.prepare(" SELECT * FROM client ORDER BY phone desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 5) {
-        query.prepare(" SELECT * FROM client ORDER BY hbd desc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 5) {
+    query.prepare(" SELECT * FROM client ORDER BY hbd desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      if (test == 6) {
-        query.prepare(" SELECT * FROM client ORDER BY operateur desc; ");
-        query.exec();
-        model->setQuery(query);
-      }
+  if (test == 6) {
+    query.prepare(" SELECT * FROM client ORDER BY operateur desc; ");
+    query.exec();
+    model->setQuery(query);
+  }
 
-      model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-      model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-      model->setHeaderData(3, Qt::Horizontal, QObject::tr("Mail"));
-      model->setHeaderData(4, Qt::Horizontal, QObject::tr("Phone"));
-      model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date de naissance"));
-      model->setHeaderData(6, Qt::Horizontal, QObject::tr("Operateur"));
+  model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+  model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+  model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+  model->setHeaderData(3, Qt::Horizontal, QObject::tr("Mail"));
+  model->setHeaderData(4, Qt::Horizontal, QObject::tr("Phone"));
+  model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date de naissance"));
+  model->setHeaderData(6, Qt::Horizontal, QObject::tr("Operateur"));
 
-      return model;
+  return model;
 }
 
 void client::create_pdf(QString description, QString objet, QString title) {
